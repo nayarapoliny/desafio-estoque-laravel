@@ -1,4 +1,11 @@
-# Products API — Desafio Técnico Laravel
+# 🖥️ Products API — Desafio Técnico Laravel
+
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Blade](https://img.shields.io/badge/Blade-F05340?style=for-the-badge&logo=laravel&logoColor=white)
+
+Uma interface visual, interativa e amigável para o gerenciamento completo de produtos no estoque, focada na melhor experiência do usuário final.
+
 
 API REST para gerenciamento de produtos.
 
@@ -55,10 +62,3 @@ Arquivo `insomnia_collection.json` na raiz.
 ## Respostas Teóricas
 Arquivo `respostas.md` na raiz.
 
-# 🖥️ Gerenciador de Estoque - Interface Web
-
-![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Blade](https://img.shields.io/badge/Blade-F05340?style=for-the-badge&logo=laravel&logoColor=white)
-
-Uma interface visual, interativa e amigável para o gerenciamento completo de produtos no estoque, focada na melhor experiência do usuário final.
