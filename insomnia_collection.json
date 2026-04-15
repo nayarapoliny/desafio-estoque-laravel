@@ -1,0 +1,208 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Products API
+meta:
+  id: wrk_e9b643135c684abcbb456e6bdb099cb3
+  created: 1776197112264
+  modified: 1776197112264
+  description: ""
+collection:
+  - url: "{{ base_url }}/products"
+    name: List Products
+    meta:
+      id: req_c38afde3476e4d0bbdbcb672c8b620c5
+      created: 1776197350957
+      modified: 1776197887042
+      isPrivate: false
+      description: ""
+      sortKey: -1776197350957
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/products?name=mouse&min_price=50&max_price=200&per_page=10"
+    name: List Filtered
+    meta:
+      id: req_164430bd20524b09b1d3316904dd9cf2
+      created: 1776197598687
+      modified: 1776197900331
+      isPrivate: false
+      description: ""
+      sortKey: -1776197598687
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/products"
+    name: Create Product
+    meta:
+      id: req_3edbbeda270640c6bccb8e3df14b1730
+      created: 1776197657162
+      modified: 1776197913899
+      isPrivate: false
+      description: ""
+      sortKey: -1776197657162
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Mouse Gamer",
+          "description": "RGB 16000 DPI",
+          "price": 199.90,
+          "stock": 15
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/products/1"
+    name: Show Product
+    meta:
+      id: req_4e4a203dbf724066b520704a460abde4
+      created: 1776197729556
+      modified: 1776197953610
+      isPrivate: false
+      description: ""
+      sortKey: -1776197729556
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/products/1"
+    name: Update Product
+    meta:
+      id: req_6d1cef0cdf764af2941dfd8e96515822
+      created: 1776197756493
+      modified: 1776197962688
+      isPrivate: false
+      description: ""
+      sortKey: -1776197756493
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Mouse Gamer",
+          "description": "RGB 16000 DPI",
+          "price": 199.90,
+          "stock": 15
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ base_url }}/products/1"
+    name: Delete Product
+    meta:
+      id: req_a153bd7920cb4814bd9b5ad9740fa9ac
+      created: 1776197796567
+      modified: 1776197971835
+      isPrivate: false
+      description: ""
+      sortKey: -1776197796567
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+      - name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_bbe086ae8ed6bc926072eaa418806d3ab4b3c3b8
+    created: 1776197112270
+    modified: 1776197112270
+environments:
+  name: Base Environment
+  meta:
+    id: env_bbe086ae8ed6bc926072eaa418806d3ab4b3c3b8
+    created: 1776197112270
+    modified: 1776197585475
+    isPrivate: false
+  data:
+    base_url: http://localhost:8000/api
