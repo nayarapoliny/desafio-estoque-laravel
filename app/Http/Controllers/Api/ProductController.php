@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Services\ProductService;
 use App\Support\ApiResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -19,7 +20,6 @@ class ProductController extends Controller
     {
         $products = $this->service->list($request);
 
-        // Extrai apenas o array de dados do Resource, sem forçar o resolve() do Laravel inteiro
         $data = ProductResource::collection($products)->toArray($request);
 
         return ApiResponse::success(
@@ -35,9 +35,43 @@ class ProductController extends Controller
         );
     }
 
-    public function store(StoreProductRequest $request)
+    /**
+     * Versão adaptada para aceitar um único produto ou um array de produtos.
+     */
+    public function store(Request $request)
     {
-        $product = $this->service->create($request->validated());
+        $input = $request->all();
+
+        // Verifica se é uma lista de produtos (Array de Arrays)
+        if (isset($input[0]) && is_array($input[0])) {
+            $createdProducts = [];
+            
+            foreach ($input as $item) {
+                // Valida individualmente cada item usando as regras do seu Form Request
+                $validator = Validator::make($item, (new StoreProductRequest())->rules());
+                
+                if ($validator->fails()) {
+                    continue; // Ou você pode retornar erro se preferir que pare tudo
+                }
+
+                $createdProducts[] = $this->service->create($validator->validated());
+            }
+
+            return ApiResponse::success(
+                ProductResource::collection($createdProducts), 
+                'Produtos criados com sucesso.', 
+                201
+            );
+        }
+
+        // Caso seja apenas um produto (Lógica original)
+        $validator = Validator::make($input, (new StoreProductRequest())->rules());
+        
+        if ($validator->fails()) {
+             return ApiResponse::error('Dados inválidos.', 422, $validator->errors());
+        }
+
+        $product = $this->service->create($validator->validated());
         return ApiResponse::success(new ProductResource($product), 'Produto criado.', 201);
     }
 
